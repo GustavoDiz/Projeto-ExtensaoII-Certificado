@@ -18,8 +18,9 @@ export default function Navbar({ user }) {
         <Link href={"/events"}>
           <li>Eventos</li>
         </Link>
-        <li>Certificados</li>
-        <li>Planos</li>
+        <Link href={"/certificate"}>
+          <li>Certificados</li>
+        </Link>
       </ul>
       <div className="profile text-lg font-medium text-white h-full flex items-center">
         <p>

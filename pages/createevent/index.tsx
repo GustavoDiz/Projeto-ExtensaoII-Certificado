@@ -50,11 +50,11 @@ export default function CreateEvent() {
   return (
     <AuthProvider>
       <Navbar user={user} />
-      <div className="justify-center h-screen bg-amber-300 flex">
+      <div className="justify-center h-screen bg-amber-300 flex p-8">
         <div className="login bg-slate-200 flex flex-col items-center  p-4 rounded-lg shadow-lg w-1/2">
-          <h1>CRIAR EVENTO</h1>
+          <h1 className="font-bold text-3xl">CRIAR EVENTO</h1>
           <form
-            className="items-center justify-center flex flex-col w-full"
+            className="items-center justify-center flex flex-col w-full p-2"
             onSubmit={handleEvent}
           >
             <label className="block m-1">
