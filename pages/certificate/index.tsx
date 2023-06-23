@@ -9,7 +9,7 @@ export default function Certificate() {
   const router = useRouter();
   const { user } = useContext(AuthContext);
 
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([] as any);
 
   useEffect(() => {
     fetchMyEvents();

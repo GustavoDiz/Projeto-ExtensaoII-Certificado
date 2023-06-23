@@ -44,12 +44,14 @@ export default function Signout() {
     contentModal = (
       <div>
         <p>Registro realizado com sucesso!</p>
-        <button
-          className="bg-amber-300 rounded-md p-1 font-bold text-white border-solid border-2 border-amber-400 m-2"
-          onClick={closeModal}
-        >
-          Fechar
-        </button>
+        <Link href={"/login"}>
+          <button
+            className="bg-amber-300 rounded-md p-1 font-bold text-white border-solid border-2 border-amber-400 m-2"
+            onClick={closeModal}
+          >
+            Fechar
+          </button>
+        </Link>
       </div>
     );
   }

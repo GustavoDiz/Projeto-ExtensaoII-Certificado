@@ -28,7 +28,7 @@ export default function Login() {
       .select("*")
       .eq("username", username);
 
-    const user = users[0];
+    const user = users![0];
     if (error) {
       console.error(error);
     } else {

@@ -9,7 +9,7 @@ import Template from "../../public/6893208.png";
 export default function Events() {
   const { user } = useContext(AuthContext);
 
-  const [myTalks, setMyTalks] = useState([]);
+  const [myTalks, setMyTalks] = useState([] as any);
 
   useEffect(() => {
     fetchMyTalks();
@@ -33,7 +33,7 @@ export default function Events() {
         <div className="bg-amber-400 font-bold text-white text-3xl p-6">
           <h1 className="text-center">EVENTOS</h1>
         </div>
-        {user.user_type == "creator" && (
+        {user.user_type === "creator" && ( 
           <Link
             href={"/createevent"}
             className="bg-amber-400 rounded-md p-1 font-bold text-white border-solid border-2 border-amber-400 m-2 w-1/2 text-center self-center"

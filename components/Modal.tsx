@@ -17,7 +17,7 @@ const CustomModal = ({ isOpen, onClose, content }) => {
           height: "134px", // Definir a altura desejada
           margin: "auto",
           borderRadius: "8px",
-          padding: "0px",
+          padding: "20px",
         },
       }}
     >

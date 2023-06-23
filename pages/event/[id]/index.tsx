@@ -11,7 +11,7 @@ export default function Event() {
   const { user } = useContext(AuthContext);
   const router = useRouter();
   const id = router.query.id as string;
-  const [event, setEvent] = useState({});
+  const [event, setEvent] = useState({} as any);
 
   useEffect(() => {
     fetchEvent();
@@ -26,7 +26,7 @@ export default function Event() {
     if (error) {
       console.error(error);
     } else {
-      setEvent(palestra[0]);
+      setEvent(palestra![0]);
     }
   };
 
