@@ -31,7 +31,7 @@ export default function Signout() {
   if (erro) {
     contentModal = (
       <div className="bg-red-200 p-4 rounded-lg font-bold text-center">
-        <p>Ocorreu um erro durante o registro,tente novamente.</p>
+        <p>Ocorreu um erro durante o registro, tente novamente.</p>
         <button
           className="bg-amber-300 rounded-md p-1 font-bold text-white border-solid border-2 border-amber-400 m-2"
           onClick={closeModal}
@@ -56,7 +56,6 @@ export default function Signout() {
     );
   }
 
-  //REGISTRAR USUARIO
   const handleRegister = async (e) => {
     e.preventDefault();
     if (!username || !password || !email || !usertype) {

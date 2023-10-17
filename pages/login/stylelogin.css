@@ -1,0 +1,45 @@
+.button_homepage {
+    background-color: #FFD700;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    font-weight: bold;
+    color: white;
+    border: 2px solid #FFC400;
+    margin: 0.5rem;
+    width: 50%;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  
+  .button_homepage:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  #false_account {
+    display: block; 
+    font-size: 1.125rem; 
+    font-weight: 500; 
+    color: #6b7280;
+    margin: 0.25rem;
+  }
+
+  .login_button{
+    background-color: #FFD700;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    font-weight: bold;
+    color: white;
+    border: 2px solid #FFC400;
+    margin: 0.5rem;
+    width: 50%;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+  .login_button:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .inscri_button{
+    color: #FFC400
+  }

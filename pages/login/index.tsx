@@ -7,6 +7,7 @@ import supabase from "../../util/supabase";
 import { AuthContext } from "../../util/auth";
 import { useRouter } from "next/router";
 import bcrypt from "bcryptjs";
+import "../../pages/login/stylelogin.css";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -73,20 +74,20 @@ export default function Login() {
           </label>
           <button
             type="submit"
-            className="bg-amber-300 rounded-md p-1 font-bold text-white border-solid border-2 border-amber-400 m-2 w-1/2"
+            className="login_button"
           >
             ENTRAR
           </button>
-          <p className="block text-lg font-medium text-slate-700 m-1">
+          <p id = "false_account">
             Não possui uma conta?{" "}
-            <Link href={"/signup"} className="text-amber-400">
+            <Link href={"/signup"} className="inscri_button">
               Inscrever-se
             </Link>
           </p>
         </form>
         <button
           type="submit"
-          className="bg-amber-300 rounded-md p-1 font-bold text-white border-solid border-2 border-amber-400 m-2 w-1/2"
+          className="button_homepage"
         >
           <Link href={"/home"}>Ir para HomePage</Link>
         </button>
