@@ -6,16 +6,25 @@ import supabase from "../../../util/supabase";
 import Image from "next/image";
 import Template from "../../../public/6893208.png";
 import ScrollTop from "../../../components/ScrollTop";
+import CustomModal from "../../../components/Modal";
+import Link from "next/link";
 
 export default function Event() {
   const { user } = useContext(AuthContext);
   const router = useRouter();
   const id = router.query.id as string;
   const [event, setEvent] = useState({} as any);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetchEvent();
   }, []);
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  let textModal;
 
   const fetchEvent = async () => {
     let { data: palestra, error } = await supabase
@@ -27,17 +36,44 @@ export default function Event() {
       console.error(error);
     } else {
       setEvent(palestra![0]);
+      console.log(event.id);
     }
   };
+
+  textModal = (
+    <div className="p-4 rounded-lg font-bold text-center">
+      <p>Palestra Inscrita com Sucesso</p>
+      <Link href={"/events"}>
+        <button
+          className="bg-amber-300 rounded-md p-1 font-bold text-white border-solid border-2 border-amber-400 m-2"
+          onClick={closeModal}
+        >
+          Fechar
+        </button>
+      </Link>
+    </div>
+  );
 
   const convertDate = (dateString: string) => {
     if (!dateString) {
       return ""; // Retorna uma string vazia se a data for indefinida
     }
-
     const [y, m, d] = dateString.split("-");
     const convertedDate = `${d}/${m}/${y}`;
     return convertedDate;
+  };
+
+  const subscribe = async () => {
+    const { data, error } = await supabase
+      .from("subscribe")
+      .insert([{ user: user.id, palestra: event.id }])
+      .select();
+
+    if (error) {
+      console.error(error);
+    } else {
+      setShowModal(true);
+    }
   };
 
   const data = event ? convertDate(event.date) : "";
@@ -57,10 +93,24 @@ export default function Event() {
           <p>{event.desc}</p>
           <p>Tema {event.theme}</p>
           <p>
-            Link para Evento <span className="text-amber-500">{event.link} </span>
+            Link para Evento{" "}
+            <span className="text-amber-500">{event.link} </span>
           </p>
+          <button
+            onClick={subscribe}
+            className="bg-amber-300 rounded-md p-1 font-bold text-white border-solid border-2 border-amber-400 m-2"
+          >
+            Inscrever-Se
+          </button>
         </div>
       </div>
+      {showModal && (
+        <CustomModal
+          isOpen={showModal}
+          onClose={closeModal}
+          content={textModal}
+        />
+      )}
     </AuthProvider>
   );
 }

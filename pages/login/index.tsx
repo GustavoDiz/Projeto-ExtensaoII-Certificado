@@ -85,12 +85,15 @@ export default function Login() {
             </Link>
           </p>
         </form>
+<<<<<<< Updated upstream
         <button
           type="submit"
           className="button_homepage"
         >
           <Link href={"/home"}>Ir para HomePage</Link>
         </button>
+=======
+>>>>>>> Stashed changes
       </div>
     </div>
   );
